@@ -1,0 +1,7 @@
+{
+  "name": "ARGUS AI Sales Closer",
+  "description": "An elite AI-powered sales infrastructure for high-net-worth real estate teams, featuring instant lead engagement and automated qualification.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
