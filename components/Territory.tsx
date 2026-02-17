@@ -11,31 +11,24 @@ const statusData: TerritoryStatus[] = [
 
 const Territory: React.FC = () => {
   return (
-    <section id="territory" className="relative py-32 bg-zinc-950 overflow-hidden">
-      {/* Yorkville architectural detail */}
-      <img 
-        src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2000&auto=format&fit=crop" 
-        alt="Elite Real Estate" 
-        className="section-bg-image opacity-[0.15]"
-      />
-
+    <section id="territory" className="relative py-32 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-center relative z-10">
         <div className="space-y-10">
-          <h2 className="font-bold text-5xl md:text-6xl text-white tracking-tighter leading-none italic">
-            TERRITORY <br /><span className="text-[#D4AF37]">EXCLUSIVITY.</span>
+          <h2 className="font-extrabold text-5xl md:text-6xl text-zinc-900 tracking-tight leading-none">
+            TERRITORY <br /><span className="text-[#B8860B]">EXCLUSIVITY.</span>
           </h2>
-          <p className="text-zinc-400 text-xl font-light italic leading-relaxed">
-            We strictly limit ARGUS to non-competing teams. Once a neighborhood is claimed, the infrastructure is locked to your competition.
+          <p className="text-zinc-500 text-xl font-medium leading-relaxed">
+            We partner with one elite team per core neighborhood. Secure your market dominance before the competition locks you out.
           </p>
           
-          <div className="space-y-4">
+          <div className="space-y-3">
             {statusData.map((item, idx) => (
-              <div key={idx} className="flex items-center justify-between p-6 glass-panel border-l-4 border-l-[#D4AF37]/50 hover:border-l-[#D4AF37] transition-all">
-                <span className="text-white font-bold tracking-tight text-lg">{item.name}</span>
-                <span className={`text-[10px] font-black uppercase tracking-widest border-2 px-3 py-1.5 ${
-                  item.status === 'Locked' ? 'text-[#D4AF37] border-[#D4AF37] bg-[#D4AF37]/5' :
-                  item.status === 'Waitlist' ? 'text-zinc-500 border-zinc-700' :
-                  'text-emerald-500 border-emerald-900/50 bg-emerald-900/10'
+              <div key={idx} className="flex items-center justify-between p-5 bg-zinc-50 border border-zinc-100 rounded-xl hover:border-[#B8860B] transition-all group">
+                <span className="text-zinc-800 font-bold tracking-tight text-lg group-hover:text-zinc-900">{item.name}</span>
+                <span className={`text-[10px] font-black uppercase tracking-widest border-2 px-3 py-1.5 rounded-md ${
+                  item.status === 'Locked' ? 'text-[#B8860B] border-[#B8860B] bg-[#B8860B]/5' :
+                  item.status === 'Waitlist' ? 'text-zinc-400 border-zinc-200' :
+                  'text-emerald-600 border-emerald-100 bg-emerald-50'
                 }`}>
                   {item.status}
                 </span>
@@ -43,21 +36,21 @@ const Territory: React.FC = () => {
             ))}
           </div>
 
-          <button className="w-full btn-luxury shadow-2xl">
-            Check My Market Availability
+          <button className="w-full btn-luxury rounded-lg shadow-lg">
+            Check Market Availability
           </button>
         </div>
 
-        <div className="relative glass-panel p-1 border-white/10 rounded-3xl overflow-hidden group shadow-[0_0_100px_rgba(212,175,55,0.1)]">
+        <div className="relative p-2 bg-zinc-50 border border-zinc-100 rounded-[2.5rem] shadow-2xl group overflow-hidden">
            <img 
-             src="https://images.unsplash.com/photo-1628592102751-ba83b03bc677?q=80&w=1200&auto=format&fit=crop" 
-             alt="Toronto Luxury Facade" 
-             className="w-full h-[600px] object-cover rounded-3xl group-hover:scale-110 transition-transform duration-[3s]"
+             src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200&auto=format&fit=crop" 
+             alt="Elite Real Estate" 
+             className="w-full h-[600px] object-cover rounded-[2rem] group-hover:scale-105 transition-transform duration-[4s]"
            />
-           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
            <div className="absolute bottom-10 left-10 right-10 text-center">
-             <p className="text-[10px] uppercase tracking-[0.4em] text-[#FAE088] font-bold mb-2">Neighborhood Spotlight</p>
-             <p className="text-3xl font-bold text-white italic tracking-tighter">The Bridle Path Estates</p>
+             <p className="text-[10px] uppercase tracking-[0.4em] text-white font-black mb-2">NEIGHBORHOOD SPOTLIGHT</p>
+             <p className="text-3xl font-black text-white tracking-tight">THE BRIDLE PATH</p>
            </div>
         </div>
       </div>

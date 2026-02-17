@@ -8,79 +8,73 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <style>
-        /* Modern Microsoft System Font Stack (Segoe UI) */
+        /* Microsoft System Font Stack (Segoe UI) */
         :root {
-            --argus-gold: #D4AF37;
-            --argus-slate: #1a1a1e;
-            --argus-cream: #f9f7f2;
+            --argus-gold: #B8860B;
+            --argus-gold-bright: #D4AF37;
+            --argus-bloomberg-blue: #0035ad;
+            --luxury-bg: #fdfdfd;
+            --luxury-text: #1a1a1a;
         }
 
         body {
             font-family: "Segoe UI", "Segoe UI Web (West European)", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-            background-color: #0c0c0e;
-            color: #f4f4f5;
+            background-color: var(--luxury-bg);
+            color: var(--luxury-text);
             margin: 0;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Unifying all headings to the Microsoft UI style font */
-        h1, h2, h3, h4, h5, h6, .luxury-font {
-            font-family: "Segoe UI", "Segoe UI Web (West European)", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+        h1, h2, h3, h4, .luxury-font {
             font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .glass-panel {
-            background: rgba(18, 18, 20, 0.75);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
         }
 
         .btn-luxury {
-            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            background: linear-gradient(135deg, #B8860B 0%, #D4AF37 100%);
             color: white;
-            font-weight: 600; /* Slightly refined for Segoe UI */
+            font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             padding: 1.25rem 2.5rem;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: none;
         }
 
         .btn-luxury:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(184, 134, 11, 0.3);
+            filter: brightness(1.1);
         }
 
-        .section-bg-image {
-            position: absolute;
-            inset: 0;
-            z-index: -1;
-            opacity: 0.25;
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-            filter: grayscale(40%) contrast(110%);
+        .ticker-blue {
+            background-color: var(--argus-bloomberg-blue);
+            color: white;
         }
 
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #0c0c0e; }
-        ::-webkit-scrollbar-thumb { background: var(--argus-gold); border-radius: 10px; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--argus-gold); }
 
-        /* Smooth reveal animations */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
+        button, input, select { font-family: inherit; }
+
+        /* Animation for section reveals */
+        .reveal-up {
+            animation: revealUp 0.8s ease-out forwards;
+        }
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-        .reveal { animation: fadeUp 1s ease-out forwards; }
-
-        /* Ensuring inputs and buttons inherit the font */
-        button, input, textarea, select {
-            font-family: inherit;
         }
     </style>
 <script type="importmap">
@@ -94,7 +88,7 @@
 }
 </script>
 </head>
-<body class="antialiased selection:bg-[#D4AF37] selection:text-zinc-950">
+<body class="antialiased">
     <div id="root"></div>
     <script type="module" src="index.tsx"></script>
 </body>
