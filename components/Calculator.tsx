@@ -27,7 +27,7 @@ const Calculator: React.FC = () => {
   };
 
   return (
-    <section id="calculator" className="relative py-32 bg-white border-y border-zinc-100">
+    <section id="calculator" className="relative py-32 bg-[#F2F0ED] border-y border-zinc-200/50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           <div className="space-y-12">
@@ -35,12 +35,12 @@ const Calculator: React.FC = () => {
               <h2 className="font-extrabold text-5xl md:text-6xl text-zinc-900 tracking-tight leading-none">
                 THE REVENUE <br /><span className="text-[#B8860B]">LEAKAGE.</span>
               </h2>
-              <p className="text-zinc-500 text-lg leading-relaxed font-medium">
+              <p className="text-zinc-600 text-lg leading-relaxed font-medium">
                 Missed calls are missed commissions. In Toronto's high-velocity market, every second matters. ARGUS recovers your lost opportunities instantly.
               </p>
             </div>
 
-            <div className="space-y-10 bg-zinc-50 p-12 rounded-3xl border border-zinc-100">
+            <div className="space-y-10 bg-white/40 p-12 rounded-3xl border border-zinc-200/50 backdrop-blur-sm">
               <div className="space-y-6">
                 <div className="flex justify-between items-end">
                   <label className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.3em]">MEDIAN PORTFOLIO PRICE</label>
@@ -88,7 +88,7 @@ const Calculator: React.FC = () => {
                 {formatCurrency(recoveredGCI)}
               </div>
               
-              <p className="mt-10 text-zinc-500 text-sm max-w-sm mx-auto font-medium leading-relaxed">
+              <p className="mt-10 text-zinc-600 text-sm max-w-sm mx-auto font-medium leading-relaxed">
                 Secure your dominance. Every missed call is a conversation with your competitor.
               </p>
               

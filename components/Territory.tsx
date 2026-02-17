@@ -11,19 +11,19 @@ const statusData: TerritoryStatus[] = [
 
 const Territory: React.FC = () => {
   return (
-    <section id="territory" className="relative py-32 bg-white overflow-hidden">
+    <section id="territory" className="relative py-32 bg-[#F2F0ED] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-center relative z-10">
         <div className="space-y-10">
           <h2 className="font-extrabold text-5xl md:text-6xl text-zinc-900 tracking-tight leading-none">
             TERRITORY <br /><span className="text-[#B8860B]">EXCLUSIVITY.</span>
           </h2>
-          <p className="text-zinc-500 text-xl font-medium leading-relaxed">
+          <p className="text-zinc-600 text-xl font-medium leading-relaxed">
             We partner with one elite team per core neighborhood. Secure your market dominance before the competition locks you out.
           </p>
           
           <div className="space-y-3">
             {statusData.map((item, idx) => (
-              <div key={idx} className="flex items-center justify-between p-5 bg-zinc-50 border border-zinc-100 rounded-xl hover:border-[#B8860B] transition-all group">
+              <div key={idx} className="flex items-center justify-between p-5 bg-white/60 border border-zinc-200/50 rounded-xl hover:border-[#B8860B] transition-all group backdrop-blur-sm">
                 <span className="text-zinc-800 font-bold tracking-tight text-lg group-hover:text-zinc-900">{item.name}</span>
                 <span className={`text-[10px] font-black uppercase tracking-widest border-2 px-3 py-1.5 rounded-md ${
                   item.status === 'Locked' ? 'text-[#B8860B] border-[#B8860B] bg-[#B8860B]/5' :
@@ -41,7 +41,7 @@ const Territory: React.FC = () => {
           </button>
         </div>
 
-        <div className="relative p-2 bg-zinc-50 border border-zinc-100 rounded-[2.5rem] shadow-2xl group overflow-hidden">
+        <div className="relative p-2 bg-white/40 border border-zinc-200/50 rounded-[2.5rem] shadow-2xl group overflow-hidden">
            <img 
              src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200&auto=format&fit=crop" 
              alt="Elite Real Estate" 

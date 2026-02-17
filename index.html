@@ -13,8 +13,10 @@
             --argus-gold: #B8860B;
             --argus-gold-bright: #D4AF37;
             --argus-bloomberg-blue: #0035ad;
-            --luxury-bg: #fdfdfd;
+            /* 2026 Luxury Trend: Limestone Pearl / Warm Stone */
+            --luxury-bg: #F2F0ED; 
             --luxury-text: #1a1a1a;
+            --panel-bg: rgba(255, 255, 255, 0.7);
         }
 
         body {
@@ -32,11 +34,11 @@
         }
 
         .glass-panel {
-            background: rgba(255, 255, 255, 0.85);
+            background: var(--panel-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
         }
 
         .btn-luxury {
@@ -62,13 +64,12 @@
         }
 
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: var(--luxury-bg); }
+        ::-webkit-scrollbar-thumb { background: #d1cdc7; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--argus-gold); }
 
         button, input, select { font-family: inherit; }
 
-        /* Animation for section reveals */
         .reveal-up {
             animation: revealUp 0.8s ease-out forwards;
         }
