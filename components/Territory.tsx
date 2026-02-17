@@ -3,60 +3,62 @@ import React from 'react';
 import { TerritoryStatus } from '../types';
 
 const statusData: TerritoryStatus[] = [
+  { name: 'Yorkville & Annex', status: 'Locked' },
   { name: 'The Bridle Path', status: 'Locked' },
   { name: 'Forest Hill South', status: 'Waitlist' },
-  { name: 'Rosedale', status: 'Limited' },
+  { name: 'Rosedale / Moore Park', status: 'Limited' },
 ];
 
 const Territory: React.FC = () => {
   return (
-    <section id="territory" className="py-24 bg-zinc-900/30 border-t border-white/5 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-        
-        <div className="space-y-8 order-2 lg:order-1">
-          <h2 className="font-semibold text-4xl md:text-5xl text-white tracking-tight">Territory Availability</h2>
-          <p className="text-zinc-400 text-lg">We strictly limit ARGUS access to non-competing teams in specific high-value GTA neighborhoods to maintain your competitive advantage.</p>
+    <section id="territory" className="relative py-32 bg-zinc-950 overflow-hidden">
+      {/* Yorkville architectural detail */}
+      <img 
+        src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2000&auto=format&fit=crop" 
+        alt="Elite Real Estate" 
+        className="section-bg-image opacity-[0.15]"
+      />
+
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-center relative z-10">
+        <div className="space-y-10">
+          <h2 className="font-bold text-5xl md:text-6xl text-white tracking-tighter leading-none italic">
+            TERRITORY <br /><span className="text-[#D4AF37]">EXCLUSIVITY.</span>
+          </h2>
+          <p className="text-zinc-400 text-xl font-light italic leading-relaxed">
+            We strictly limit ARGUS to non-competing teams. Once a neighborhood is claimed, the infrastructure is locked to your competition.
+          </p>
           
           <div className="space-y-4">
             {statusData.map((item, idx) => (
-              <div key={idx} className="flex items-center justify-between p-4 border border-zinc-800 bg-zinc-950/50">
-                <span className="text-white font-medium">{item.name}</span>
-                <span className={`text-xs font-bold uppercase tracking-wider border px-2 py-1 ${
-                  item.status === 'Locked' ? 'text-[#D4AF37] border-[#D4AF37]' :
+              <div key={idx} className="flex items-center justify-between p-6 glass-panel border-l-4 border-l-[#D4AF37]/50 hover:border-l-[#D4AF37] transition-all">
+                <span className="text-white font-bold tracking-tight text-lg">{item.name}</span>
+                <span className={`text-[10px] font-black uppercase tracking-widest border-2 px-3 py-1.5 ${
+                  item.status === 'Locked' ? 'text-[#D4AF37] border-[#D4AF37] bg-[#D4AF37]/5' :
                   item.status === 'Waitlist' ? 'text-zinc-500 border-zinc-700' :
                   'text-emerald-500 border-emerald-900/50 bg-emerald-900/10'
                 }`}>
-                  Status: {item.status}
+                  {item.status}
                 </span>
               </div>
             ))}
           </div>
 
-          <button className="w-full bg-[#D4AF37] text-zinc-950 text-base font-semibold py-4 px-8 hover:bg-[#b5952f] transition-all mt-4 tracking-wide shadow-lg shadow-[#D4AF37]/20">
-            Verify Your Territory
+          <button className="w-full btn-luxury shadow-2xl">
+            Check My Market Availability
           </button>
         </div>
 
-        <div className="relative order-1 lg:order-2 h-[400px] lg:h-[500px] glass-panel border border-zinc-800 p-8 flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#444 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-          
-          <div className="relative z-10 w-full h-full max-w-sm mx-auto">
-            <div className="absolute top-1/4 left-1/4 w-24 h-24 border border-[#D4AF37] bg-[#D4AF37]/10 flex items-center justify-center">
-              <iconify-icon icon="solar:lock-password-linear" class="text-[#D4AF37] text-2xl"></iconify-icon>
-            </div>
-            <div className="absolute top-[22%] left-[22%] text-xs text-[#D4AF37] font-mono tracking-widest uppercase">Bridle Path</div>
-
-            <div className="absolute bottom-1/3 right-1/4 w-32 h-20 border border-zinc-700 bg-zinc-800/20 flex items-center justify-center animate-pulse">
-              <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
-            </div>
-            <div className="absolute bottom-[30%] right-[20%] text-xs text-zinc-500 font-mono tracking-widest uppercase">Rosedale</div>
-
-            <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30">
-              <line x1="30%" y1="30%" x2="70%" y2="60%" stroke="white" strokeWidth="1" strokeDasharray="5,5"></line>
-              <circle cx="30%" cy="30%" r="3" fill="#D4AF37"></circle>
-              <circle cx="70%" cy="60%" r="3" fill="#555"></circle>
-            </svg>
-          </div>
+        <div className="relative glass-panel p-1 border-white/10 rounded-3xl overflow-hidden group shadow-[0_0_100px_rgba(212,175,55,0.1)]">
+           <img 
+             src="https://images.unsplash.com/photo-1628592102751-ba83b03bc677?q=80&w=1200&auto=format&fit=crop" 
+             alt="Toronto Luxury Facade" 
+             className="w-full h-[600px] object-cover rounded-3xl group-hover:scale-110 transition-transform duration-[3s]"
+           />
+           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+           <div className="absolute bottom-10 left-10 right-10 text-center">
+             <p className="text-[10px] uppercase tracking-[0.4em] text-[#FAE088] font-bold mb-2">Neighborhood Spotlight</p>
+             <p className="text-3xl font-bold text-white italic tracking-tighter">The Bridle Path Estates</p>
+           </div>
         </div>
       </div>
     </section>

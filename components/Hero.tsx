@@ -8,63 +8,66 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center space-y-12">
-        <div className="inline-flex items-center gap-3 border border-[#D4AF37]/30 bg-black/40 px-6 py-2.5 rounded-full backdrop-blur-xl animate-fade-in">
-          <span className="w-2 h-2 rounded-full bg-[#D4AF37] shadow-[0_0_12px_#D4AF37]"></span>
-          <span className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-[#FAE088] font-black">Elite Toronto Sales Infrastructure</span>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Toronto Skyline Hero Background */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1503106628544-27318fef6252?q=80&w=2000&auto=format&fit=crop" 
+          alt="Toronto Skyline" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-zinc-950"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center pt-20">
+        <div className="inline-flex items-center gap-3 border border-[#D4AF37]/50 bg-black/50 px-6 py-2 rounded-full backdrop-blur-md mb-12">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shadow-[0_0_10px_#D4AF37]"></span>
+          <span className="text-[10px] uppercase tracking-[0.5em] text-[#FAE088] font-bold">The Gold Standard in GTA Real Estate AI</span>
         </div>
         
-        <div className="space-y-8">
-          <h1 className="font-bold text-5xl md:text-7xl lg:text-9xl text-white leading-[0.95] tracking-tighter">
-            THE ART OF <br className="hidden md:block" /> 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAE088] via-[#D4AF37] to-[#FAE088]">CLOSING.</span>
-          </h1>
-          
-          <p className="text-lg md:text-2xl text-zinc-200 max-w-3xl mx-auto font-light leading-relaxed">
-            Eliminate the response gap. Capture, qualify, and convert luxury leads in 
-            <span className="text-white font-semibold border-b border-[#D4AF37]/40 px-1 ml-1">under 6 seconds</span> 
-            with AI-powered precision.
-          </p>
-        </div>
+        <h1 className="font-extrabold text-6xl md:text-8xl lg:text-9xl text-white leading-[0.9] tracking-tighter italic mb-8">
+          OWN THE <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAE088] via-[#D4AF37] to-[#FAE088]">MARKET.</span>
+        </h1>
+        
+        <p className="text-xl md:text-3xl text-zinc-100 max-w-4xl mx-auto font-light leading-relaxed mb-12">
+          Elite sales infrastructure for the GTA's top producers. <br className="hidden md:block" /> 
+          Capture luxury leads in <span className="text-[#D4AF37] font-semibold italic">under 6 seconds</span>—24/7.
+        </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <button 
             onClick={() => scrollTo('territory')}
-            className="w-full sm:w-auto btn-gold py-5 px-12 text-sm"
+            className="w-full sm:w-auto btn-luxury"
           >
-            Claim Your Territory
+            Claim Exclusivity
           </button>
           <button 
             onClick={() => scrollTo('demo')}
-            className="w-full sm:w-auto glass-panel text-white text-sm font-bold py-5 px-12 hover:bg-white/5 transition-all flex items-center justify-center gap-3 group border border-white/10 uppercase tracking-widest"
+            className="w-full sm:w-auto glass-panel text-white text-sm font-bold py-5 px-12 hover:bg-white/10 transition-all flex items-center justify-center gap-3 group border border-white/20 uppercase tracking-[0.2em]"
           >
-            <span>Live Experience</span>
-            <iconify-icon icon="solar:round-alt-arrow-right-bold" class="text-2xl text-[#D4AF37] group-hover:translate-x-1 transition-transform"></iconify-icon>
+            <span>Live System Demo</span>
+            <iconify-icon icon="solar:double-alt-arrow-right-bold-duotone" class="text-2xl text-[#D4AF37] group-hover:translate-x-2 transition-transform"></iconify-icon>
           </button>
-        </div>
-        
-        <div className="pt-20 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 opacity-60">
-           <div className="flex flex-col items-center gap-1">
-             <span className="text-3xl font-bold text-white tracking-tighter">Top 1%</span>
-             <span className="text-[9px] uppercase tracking-[0.2em] font-semibold">Market Share</span>
-           </div>
-           <div className="flex flex-col items-center gap-1">
-             <span className="text-3xl font-bold text-white tracking-tighter">6s</span>
-             <span className="text-[9px] uppercase tracking-[0.2em] font-semibold">Response Time</span>
-           </div>
-           <div className="flex flex-col items-center gap-1">
-             <span className="text-3xl font-bold text-white tracking-tighter">24/7</span>
-             <span className="text-[9px] uppercase tracking-[0.2em] font-semibold">Lead Concierge</span>
-           </div>
-           <div className="flex flex-col items-center gap-1">
-             <span className="text-3xl font-bold text-white tracking-tighter">0%</span>
-             <span className="text-[9px] uppercase tracking-[0.2em] font-semibold">Missed Opportunity</span>
-           </div>
         </div>
       </div>
       
-      <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-[#0c0c0e] to-transparent"></div>
+      {/* Floating high-end stats overlay */}
+      <div className="absolute bottom-12 left-0 w-full z-10 hidden md:block">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-4 gap-4">
+           {[
+             { label: 'Market Segment', val: 'Luxury Top 1%' },
+             { label: 'Response Target', val: '< 6 Seconds' },
+             { label: 'GCI Recovery', val: '$1.2M Avg/yr' },
+             { label: 'Status', val: 'Locked-In' }
+           ].map((stat, i) => (
+             <div key={i} className="glass-panel p-6 border-t-2 border-t-[#D4AF37]">
+               <p className="text-[9px] uppercase tracking-[0.3em] text-zinc-400 font-bold mb-1">{stat.label}</p>
+               <p className="text-xl font-bold text-white tracking-tight">{stat.val}</p>
+             </div>
+           ))}
+        </div>
+      </div>
     </section>
   );
 };

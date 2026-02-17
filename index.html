@@ -8,12 +8,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
         
         :root {
             --argus-gold: #D4AF37;
-            --argus-gold-soft: #C5A028;
-            --argus-champagne: #F5E6BE;
+            --argus-slate: #1a1a1e;
+            --argus-cream: #f9f7f2;
         }
 
         body {
@@ -24,67 +24,56 @@
             overflow-x: hidden;
         }
 
-        /* Luxury "Golden Hour" Toronto Background */
-        .luxury-bg-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            background: 
-                linear-gradient(to bottom, rgba(12, 12, 14, 0.7) 0%, rgba(12, 12, 14, 0.9) 100%),
-                url('https://images.unsplash.com/photo-1503106628544-27318fef6252?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        h1, h2, h3, .luxury-font {
+            font-family: 'Playfair Display', serif;
         }
 
         .glass-panel {
-            background: rgba(24, 24, 27, 0.65);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+            background: rgba(18, 18, 20, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
 
-        .gold-accent {
-            color: var(--argus-gold);
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-        }
-
-        .btn-gold {
-            background: linear-gradient(135deg, #D4AF37 0%, #FAE088 100%);
-            color: #0c0c0e;
+        .btn-luxury {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            color: white;
             font-weight: 700;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1.25rem 2.5rem;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn-gold:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        .btn-luxury:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
         }
 
-        ::-webkit-scrollbar { width: 6px; }
+        .section-bg-image {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.25;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            filter: grayscale(40%) contrast(110%);
+        }
+
+        ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: #0c0c0e; }
-        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--argus-gold); }
+        ::-webkit-scrollbar-thumb { background: var(--argus-gold); border-radius: 10px; }
 
-        input[type=range] { -webkit-appearance: none; background: transparent; }
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            height: 20px; width: 20px;
-            border-radius: 50%;
-            background: var(--argus-gold);
-            cursor: pointer;
-            margin-top: -8px;
-            border: 2px solid white;
+        /* Smooth reveal animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        input[type=range]::-webkit-slider-runnable-track {
-            width: 100%; height: 4px;
-            cursor: pointer; background: rgba(255,255,255,0.1);
-            border-radius: 2px;
-        }
+        .reveal { animation: fadeUp 1s ease-out forwards; }
     </style>
 <script type="importmap">
 {
@@ -98,7 +87,6 @@
 </script>
 </head>
 <body class="antialiased selection:bg-[#D4AF37] selection:text-zinc-950">
-    <div class="luxury-bg-overlay"></div>
     <div id="root"></div>
     <script type="module" src="index.tsx"></script>
 </body>
