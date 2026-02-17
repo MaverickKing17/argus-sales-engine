@@ -22,6 +22,20 @@ CONVERSATION RULES:
 Current Context: This is a live demonstration for a potential Real Estate Team Lead. You must impress them with your ability to steer conversations toward high-value qualification.
 `;
 
+/**
+ * Utility to safely parse JSON from AI responses that might contain Markdown blocks.
+ */
+function safeJsonParse(text: string) {
+  try {
+    // Remove markdown code blocks if present
+    const cleanText = text.replace(/```json/g, "").replace(/```/g, "").trim();
+    return JSON.parse(cleanText);
+  } catch (e) {
+    console.error("Failed to parse AI JSON response:", e);
+    return null;
+  }
+}
+
 export async function generateChatResponse(history: Message[], userInput: string): Promise<string> {
   try {
     const chat = ai.chats.create({
@@ -44,7 +58,7 @@ export async function fetchMarketTrends() {
   try {
     const response = await ai.models.generateContent({
       model: "gemini-3-pro-preview",
-      contents: "What are the latest average sale prices for Detached homes, Semi-detached homes, and Condos in the Toronto (GTA) region based on the most recent TRREB market report? Also, what is the current monthly sales volume? Return the data in a clean JSON-like format for a ticker.",
+      contents: "What are the latest average sale prices for Detached homes, Semi-detached homes, and Condos in the Toronto (GTA) region based on the most recent TRREB market report? Also, what is the current monthly sales volume? Return the data in a clean JSON format for a ticker. Do not include markdown code blocks, just the raw JSON.",
       config: {
         tools: [{ googleSearch: {} }],
         responseMimeType: "application/json",
@@ -63,7 +77,8 @@ export async function fetchMarketTrends() {
       },
     });
 
-    const data = JSON.parse(response.text);
+    const data = safeJsonParse(response.text);
+    if (!data) throw new Error("Invalid JSON structure from model");
     return data;
   } catch (error) {
     console.error("Error fetching market trends:", error);

@@ -63,7 +63,7 @@ const ChatDemo: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-zinc-900 font-black text-[11px] uppercase tracking-[0.2em]">HNW protocol</p>
-                  <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest mt-1">Sophisticated Dialect</p>
+                  <p className="text-zinc-900 text-[10px] font-bold uppercase tracking-widest mt-1">Sophisticated Dialect</p>
                 </div>
               </div>
               <div className="flex items-start gap-5 group">
@@ -72,7 +72,7 @@ const ChatDemo: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-zinc-900 font-black text-[11px] uppercase tracking-[0.2em]">Strategic Steering</p>
-                  <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest mt-1">Autonomous Conversion</p>
+                  <p className="text-zinc-900 text-[10px] font-bold uppercase tracking-widest mt-1">Autonomous Conversion</p>
                 </div>
               </div>
             </div>
@@ -115,10 +115,10 @@ const ChatDemo: React.FC = () => {
                     <div className={`max-w-[85%] p-8 text-[16px] leading-[1.6] shadow-2xl relative ${
                       msg.role === 'user' 
                       ? 'bg-[#B8860B] text-white rounded-[2.2rem] rounded-tr-none font-bold' 
-                      : 'bg-white text-zinc-900 border border-zinc-100 rounded-[2.2rem] rounded-tl-none font-medium'
+                      : 'bg-white text-zinc-950 border border-zinc-100 rounded-[2.2rem] rounded-tl-none font-medium'
                     }`}>
                       {msg.text}
-                      <p className={`text-[9px] uppercase tracking-[0.2em] mt-5 opacity-40 font-black ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
+                      <p className={`text-[9px] uppercase tracking-[0.2em] mt-5 opacity-70 font-black ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
                         {msg.role === 'user' ? 'PROSPECTIVE CLIENT' : 'ARGUS ADVISORY'}
                       </p>
                     </div>
@@ -135,7 +135,7 @@ const ChatDemo: React.FC = () => {
                 )}
               </div>
 
-              {/* Chat Input Section - Increased pr-32 to fix the overlap issue */}
+              {/* Chat Input Section */}
               <form onSubmit={handleSend} className="p-10 bg-white border-t border-zinc-200">
                 <div className="relative flex items-center">
                   <input
