@@ -45,9 +45,9 @@ const Territory: React.FC = () => {
         </div>
 
         <div className="relative p-3 bg-white border border-zinc-200 rounded-[3rem] shadow-2xl group overflow-hidden">
-           {/* Latest high-fidelity cinematic luxury estate image provided by user */}
+           {/* High-fidelity cinematic luxury estate image provided by user */}
            <img 
-             src="https://i.ibb.co/z9gYWJJ/hunyuan-image-3-0-a-Generate-an-image-of.png" 
+             src="https://i.ibb.co/N2YvBSM5/gpt-image-1-5-high-fidelity-a-A-cinematic-ultra.png" 
              alt="Elite Toronto Estate" 
              className="w-full h-[650px] object-cover rounded-[2.5rem] group-hover:scale-105 transition-transform duration-[12s] ease-out"
            />
