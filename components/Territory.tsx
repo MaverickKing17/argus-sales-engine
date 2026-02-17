@@ -15,18 +15,18 @@ const Territory: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-center relative z-10">
         <div className="space-y-10">
           <div className="space-y-4">
-            <p className="text-[#B8860B] font-black uppercase tracking-[0.4em] text-[10px]">Strategic Placement</p>
+            <p className="text-[#B8860B] font-black uppercase tracking-[0.4em] text-[10px]">Strategic Market Placement</p>
             <h2 className="font-extrabold text-5xl md:text-6xl text-zinc-900 tracking-tight leading-none">
               TERRITORY <br /><span className="text-[#B8860B]">EXCLUSIVITY.</span>
             </h2>
           </div>
           <p className="text-zinc-600 text-xl font-medium leading-relaxed">
-            We partner with one elite team per core neighborhood. Secure your market dominance before the competition locks you out.
+            We partner with one elite team per core neighborhood. Secure your market dominance before the competition locks you out of the city's most lucrative postcodes.
           </p>
           
           <div className="space-y-3">
             {statusData.map((item, idx) => (
-              <div key={idx} className="flex items-center justify-between p-5 bg-white/60 border border-zinc-200/50 rounded-xl hover:border-[#B8860B] transition-all group backdrop-blur-sm shadow-sm hover:shadow-md">
+              <div key={idx} className="flex items-center justify-between p-5 bg-white border border-zinc-200 rounded-xl hover:border-[#B8860B] transition-all group shadow-sm hover:shadow-md">
                 <span className="text-zinc-800 font-bold tracking-tight text-lg group-hover:text-zinc-900">{item.name}</span>
                 <span className={`text-[10px] font-black uppercase tracking-widest border-2 px-3 py-1.5 rounded-md ${
                   item.status === 'Locked' ? 'text-[#B8860B] border-[#B8860B] bg-[#B8860B]/5' :
@@ -39,25 +39,36 @@ const Territory: React.FC = () => {
             ))}
           </div>
 
-          <button className="w-full btn-luxury rounded-lg shadow-lg">
+          <button className="w-full btn-luxury rounded-lg shadow-xl !py-6">
             Check Market Availability
           </button>
         </div>
 
-        <div className="relative p-3 bg-white border border-zinc-200/50 rounded-[3rem] shadow-2xl group overflow-hidden">
+        <div className="relative p-3 bg-white border border-zinc-200 rounded-[3rem] shadow-2xl group overflow-hidden">
+           {/* Sun-drenched luxury home image for Bridle Path context */}
            <img 
              src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2000&auto=format&fit=crop" 
              alt="Luxury Bridle Path Estate" 
-             className="w-full h-[650px] object-cover rounded-[2.5rem] group-hover:scale-105 transition-transform duration-[6s] ease-out"
+             className="w-full h-[650px] object-cover rounded-[2.5rem] group-hover:scale-105 transition-transform duration-[8s] ease-out"
            />
-           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90"></div>
            <div className="absolute bottom-12 left-12 right-12 text-center">
-             <div className="inline-block px-4 py-1.5 bg-[#B8860B] text-white text-[9px] font-black uppercase tracking-[0.3em] mb-4 rounded-full">
-               Featured Territory
+             <div className="inline-block px-5 py-2 bg-[#B8860B] text-white text-[10px] font-black uppercase tracking-[0.3em] mb-4 rounded-full shadow-lg">
+               Market Leader Spotlight
              </div>
-             <p className="text-[11px] uppercase tracking-[0.5em] text-white/80 font-bold mb-2">NEIGHBORHOOD SPOTLIGHT</p>
-             <p className="text-4xl font-black text-white tracking-tighter">THE BRIDLE PATH</p>
-             <p className="text-white/60 text-xs mt-4 font-medium tracking-widest">EST. VALUE: $28,500,000+</p>
+             <p className="text-[12px] uppercase tracking-[0.5em] text-white font-bold mb-2 drop-shadow-md">EXCLUSIVE LISTING TERRITORY</p>
+             <p className="text-5xl font-black text-white tracking-tighter drop-shadow-lg">THE BRIDLE PATH</p>
+             <div className="mt-6 flex items-center justify-center gap-6">
+               <div className="text-center">
+                 <p className="text-[#B8860B] text-[10px] font-black uppercase tracking-widest">Avg Price</p>
+                 <p className="text-white font-bold text-xl">$18.5M</p>
+               </div>
+               <div className="w-[1px] h-10 bg-white/20"></div>
+               <div className="text-center">
+                 <p className="text-[#B8860B] text-[10px] font-black uppercase tracking-widest">Status</p>
+                 <p className="text-white font-bold text-xl uppercase">Locked</p>
+               </div>
+             </div>
            </div>
         </div>
       </div>
