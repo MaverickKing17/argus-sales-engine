@@ -4,40 +4,54 @@ import React from 'react';
 const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="https://picsum.photos/id/122/1600/900" 
-          alt="Luxury Estate" 
-          className="w-full h-full object-cover opacity-20 grayscale mix-blend-overlay"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-950/80 to-zinc-950"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/10 via-zinc-950/0 to-zinc-950/0"></div>
-      </div>
-
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center space-y-8">
-        <div className="inline-flex items-center gap-2 border border-[#D4AF37]/30 bg-[#D4AF37]/5 px-4 py-1.5 rounded-full backdrop-blur-sm">
-          <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>
-          <span className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">Exclusive to Top 1% Producers</span>
+      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center space-y-10">
+        <div className="inline-flex items-center gap-3 border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-5 py-2 rounded-full backdrop-blur-md animate-fade-in">
+          <span className="w-2 h-2 rounded-full bg-[#D4AF37] shadow-[0_0_8px_#D4AF37]"></span>
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-bold">Premier GTA Sales Infrastructure</span>
         </div>
         
-        <h1 className="font-semibold text-5xl md:text-7xl lg:text-8xl text-white leading-[1.1] tracking-tight">
-          Stop Losing <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#FAE088]">Commission</span> to the Response Gap.
-        </h1>
-        
-        <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto font-normal leading-relaxed">
-          Instant Missed Call Text-Back + AI Concierge for the GTA’s Elite Teams. Recover high-net-worth leads in <span className="text-white font-semibold border-b border-[#D4AF37]/50">6 seconds, 24/7</span>.
-        </p>
+        <div className="space-y-6">
+          <h1 className="font-bold text-5xl md:text-7xl lg:text-8xl text-white leading-[1.05] tracking-tight">
+            Elevate Every <br className="hidden md:block" /> 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#FAE088] to-[#D4AF37]">Lead Interaction</span>
+          </h1>
+          
+          <p className="text-lg md:text-2xl text-zinc-300 max-w-3xl mx-auto font-light leading-relaxed">
+            Instant missed call response and white-glove AI concierge for the 1%. 
+            <span className="text-white font-medium"> Recover $1M+ in annual GCI</span> with zero latency engagement.
+          </p>
+        </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-          <a href="#territory" className="w-full sm:w-auto bg-[#D4AF37] text-zinc-950 text-base font-semibold py-4 px-8 hover:bg-[#b5952f] transition-all transform hover:scale-[1.02] shadow-xl shadow-[#D4AF37]/20">
-            Check Territory Exclusivity
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6">
+          <a href="#territory" className="w-full sm:w-auto bg-[#D4AF37] text-zinc-950 text-base font-bold py-5 px-10 hover:bg-[#FAE088] transition-all transform hover:-translate-y-1 shadow-2xl shadow-[#D4AF37]/20 uppercase tracking-widest">
+            Check Exclusivity
           </a>
-          <a href="#demo" className="w-full sm:w-auto border border-zinc-700 text-white text-base font-medium py-4 px-8 hover:bg-zinc-800 transition-colors flex items-center justify-center gap-2 group">
-            <span>Try Live Demo</span>
-            <iconify-icon icon="solar:play-circle-linear" class="text-xl text-[#D4AF37] group-hover:text-white transition-colors" width="24"></iconify-icon>
+          <a href="#demo" className="w-full sm:w-auto glass-panel text-white text-base font-semibold py-5 px-10 hover:bg-white/10 transition-all flex items-center justify-center gap-3 group border border-white/10">
+            <span>Live System Demo</span>
+            <iconify-icon icon="solar:round-alt-arrow-right-bold" class="text-2xl text-[#D4AF37] group-hover:translate-x-1 transition-transform"></iconify-icon>
           </a>
         </div>
+        
+        <div className="pt-16 flex justify-center gap-12 opacity-40 grayscale hover:opacity-100 transition-opacity duration-700">
+           <div className="flex flex-col items-center">
+             <span className="text-2xl font-bold text-white">Top 1%</span>
+             <span className="text-[10px] uppercase tracking-tighter">Producers Only</span>
+           </div>
+           <div className="w-[1px] h-10 bg-zinc-800"></div>
+           <div className="flex flex-col items-center">
+             <span className="text-2xl font-bold text-white">6 Sec</span>
+             <span className="text-[10px] uppercase tracking-tighter">Avg Response</span>
+           </div>
+           <div className="w-[1px] h-10 bg-zinc-800"></div>
+           <div className="flex flex-col items-center">
+             <span className="text-2xl font-bold text-white">24/7</span>
+             <span className="text-[10px] uppercase tracking-tighter">Availability</span>
+           </div>
+        </div>
       </div>
+      
+      {/* Decorative gradient for the bottom of the hero */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-zinc-950/50 to-transparent"></div>
     </section>
   );
 };

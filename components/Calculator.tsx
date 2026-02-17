@@ -6,11 +6,10 @@ const Calculator: React.FC = () => {
   const [calls, setCalls] = useState(12);
 
   const recoveredGCI = useMemo(() => {
-    // Calculation: Missed Calls * 12 months * 2% conversion * (Price * 1M * 2.5% commission)
     const priceInDollars = price * 1_000_000;
     const annualMissedCalls = calls * 12;
-    const recoveredLeads = annualMissedCalls * 0.02; // Conservative 2% recovery to closing
-    const avgCommission = priceInDollars * 0.025; // 2.5% standard
+    const recoveredLeads = annualMissedCalls * 0.02; 
+    const avgCommission = priceInDollars * 0.025; 
     return recoveredLeads * avgCommission;
   }, [price, calls]);
 
@@ -23,71 +22,68 @@ const Calculator: React.FC = () => {
   };
 
   return (
-    <section id="calculator" className="relative py-24 border-y border-white/5 bg-zinc-900/30">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-10">
+    <section id="calculator" className="relative py-32 border-y border-white/5">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-24 items-center">
+          <div className="space-y-12">
             <div className="space-y-4">
-              <h2 className="font-semibold text-4xl text-white tracking-tight">The Cost of Silence</h2>
-              <p className="text-zinc-400 text-lg">Calculate the annual GCI currently slipping through the cracks due to missed calls and delayed responses.</p>
+              <h2 className="font-bold text-4xl md:text-5xl text-white tracking-tight">The GCI Recovery <span className="text-[#D4AF37]">Engine</span></h2>
+              <p className="text-zinc-400 text-lg leading-relaxed">
+                Most luxury teams lose 20-30% of their GCI simply because high-net-worth leads don't leave voicemails. They dial the next competitor. ARGUS captures them in seconds.
+              </p>
             </div>
 
-            <div className="space-y-8 glass-panel p-8 rounded-none border-l-4 border-l-[#D4AF37]">
-              <div className="space-y-4">
+            <div className="space-y-10 glass-panel p-10 border-l-2 border-l-[#D4AF37]">
+              <div className="space-y-6">
                 <div className="flex justify-between items-end">
-                  <label className="text-sm font-semibold text-zinc-300 uppercase tracking-wide">Average Listing Price</label>
-                  <span className="text-2xl font-semibold text-white tracking-tight">${price}M</span>
+                  <label className="text-xs font-black text-zinc-500 uppercase tracking-[0.2em]">Avg Portfolio Price</label>
+                  <span className="text-3xl font-bold text-white tracking-tighter">${price}M</span>
                 </div>
                 <input 
                   type="range" 
                   min="1" 
-                  max="10" 
-                  step="0.1" 
+                  max="15" 
+                  step="0.5" 
                   value={price} 
                   onChange={(e) => setPrice(parseFloat(e.target.value))}
-                  className="w-full h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer"
+                  className="w-full"
                 />
-                <div className="flex justify-between text-xs text-zinc-500 font-mono">
-                  <span>$1M</span>
-                  <span>$10M+</span>
-                </div>
               </div>
 
-              <div className="space-y-4 pt-4 border-t border-zinc-700">
+              <div className="space-y-6 pt-6 border-t border-white/5">
                 <div className="flex justify-between items-end">
-                  <label className="text-sm font-semibold text-zinc-300 uppercase tracking-wide">Monthly Missed Calls</label>
-                  <span className="text-2xl font-semibold text-white tracking-tight">{calls}</span>
+                  <label className="text-xs font-black text-zinc-500 uppercase tracking-[0.2em]">Monthly Missed Opportunities</label>
+                  <span className="text-3xl font-bold text-white tracking-tighter">{calls}</span>
                 </div>
                 <input 
                   type="range" 
-                  min="1" 
-                  max="50" 
+                  min="2" 
+                  max="100" 
                   step="1" 
                   value={calls} 
                   onChange={(e) => setCalls(parseInt(e.target.value))}
-                  className="w-full h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer"
+                  className="w-full"
                 />
-                <div className="flex justify-between text-xs text-zinc-500 font-mono">
-                  <span>1 Call</span>
-                  <span>50 Calls</span>
-                </div>
               </div>
             </div>
           </div>
 
           <div className="relative group">
-            <div className="absolute inset-0 bg-[#D4AF37] blur-[100px] opacity-10 group-hover:opacity-20 transition-opacity duration-700"></div>
-            <div className="relative glass-panel p-12 text-center border border-[#D4AF37]/30 flex flex-col items-center justify-center min-h-[400px]">
-              <p className="text-sm uppercase tracking-[0.2em] text-zinc-400 mb-6 font-semibold">Potential Annual GCI Recovered</p>
-              <div className="font-semibold text-6xl md:text-7xl lg:text-8xl text-[#D4AF37] drop-shadow-[0_0_15px_rgba(212,175,55,0.3)] tracking-tight">
+            <div className="absolute inset-0 bg-[#D4AF37] blur-[120px] opacity-10 group-hover:opacity-20 transition-opacity duration-1000"></div>
+            <div className="relative glass-panel p-16 text-center border border-white/10 flex flex-col items-center justify-center min-h-[450px] shadow-2xl">
+              <div className="w-20 h-20 bg-zinc-950 border border-[#D4AF37]/30 rounded-full flex items-center justify-center mb-10 shadow-inner">
+                <iconify-icon icon="solar:cash-out-bold" class="text-3xl text-[#D4AF37]"></iconify-icon>
+              </div>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-zinc-500 mb-6 font-bold">Annual GCI Leakage Prevented</p>
+              <div className="font-bold text-6xl md:text-7xl lg:text-8xl text-white tracking-tighter">
                 {formatCurrency(recoveredGCI)}
               </div>
-              <p className="mt-6 text-zinc-500 text-sm max-w-xs mx-auto">
-                Based on a conservative 2% conversion rate from recovered missed calls.
+              <p className="mt-8 text-zinc-500 text-sm max-w-sm mx-auto leading-relaxed italic">
+                "Speed to lead is the only differentiator left in luxury real estate."
               </p>
-              <div className="mt-10">
-                <a href="#territory" className="inline-flex items-center gap-2 text-white border-b border-[#D4AF37] pb-1 hover:text-[#D4AF37] transition-colors font-medium">
-                  <span>Reclaim This Revenue</span>
+              <div className="mt-12">
+                <a href="#territory" className="inline-flex items-center gap-3 text-[#D4AF37] border-b border-[#D4AF37]/50 pb-2 hover:border-[#D4AF37] transition-all font-bold uppercase tracking-widest text-xs">
+                  <span>Reclaim This Capital</span>
                   <iconify-icon icon="solar:arrow-right-up-linear" width="18"></iconify-icon>
                 </a>
               </div>

@@ -10,58 +10,80 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #09090b;
+        :root {
+            --argus-gold: #D4AF37;
+            --argus-gold-light: #FAE088;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #09090b; }
-        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #e4e4e7;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Persistent Luxury Background */
+        .luxury-bg-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: 
+                linear-gradient(to bottom, rgba(9, 9, 11, 0.85), rgba(9, 9, 11, 0.95)),
+                url('https://images.unsplash.com/photo-1517090504586-fde19ea6066f?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
 
         .glass-panel {
-            background: rgba(24, 24, 27, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(18, 18, 20, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        input[type=range] {
-            -webkit-appearance: none;
-            background: transparent;
+        .gold-shadow {
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
         }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--argus-gold); }
+
+        /* Custom range slider styling */
+        input[type=range] { -webkit-appearance: none; background: transparent; }
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
-            height: 20px;
-            width: 20px;
+            height: 18px; width: 18px;
             border-radius: 50%;
-            background: #D4AF37;
+            background: var(--argus-gold);
             cursor: pointer;
-            margin-top: -8px;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            margin-top: -7px;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
         }
         input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 4px;
-            cursor: pointer;
-            background: #27272a;
+            width: 100%; height: 4px;
+            cursor: pointer; background: #27272a;
             border-radius: 2px;
         }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "@google/genai": "https://esm.sh/@google/genai@^1.41.0"
-  }
-}
-</script>
+    <script type="importmap">
+    {
+      "imports": {
+        "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+        "react/": "https://esm.sh/react@^19.2.4/",
+        "react": "https://esm.sh/react@^19.2.4",
+        "@google/genai": "https://esm.sh/@google/genai@^1.41.0"
+      }
+    }
+    </script>
 </head>
-<body class="bg-zinc-950 text-zinc-300 antialiased selection:bg-[#D4AF37] selection:text-zinc-950">
+<body class="antialiased selection:bg-[#D4AF37] selection:text-zinc-950">
+    <div class="luxury-bg-overlay"></div>
     <div id="root"></div>
+    <!-- Entry point script -->
+    <script type="module" src="index.tsx"></script>
 </body>
 </html>
