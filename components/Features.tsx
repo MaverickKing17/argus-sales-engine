@@ -46,12 +46,12 @@ const Features: React.FC = () => {
         </div>
       </div>
       
-      {/* Decorative architectural image */}
+      {/* Updated decorative architectural image based on user request */}
       <div className="mt-32 max-w-7xl mx-auto px-6">
         <img 
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop" 
-          alt="Luxury Interior" 
-          className="w-full h-[500px] object-cover rounded-3xl shadow-2xl brightness-105"
+          src="https://i.ibb.co/z9gYWJJ/hunyuan-image-3-0-a-Generate-an-image-of.png" 
+          alt="Luxury Architecture Spotlight" 
+          className="w-full h-[600px] object-cover rounded-3xl shadow-2xl brightness-105"
         />
       </div>
     </section>
