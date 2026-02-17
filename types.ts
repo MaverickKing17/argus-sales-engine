@@ -13,3 +13,5 @@ export interface TerritoryStatus {
   name: string;
   status: 'Locked' | 'Waitlist' | 'Limited' | 'Open';
 }
+
+export type AppView = 'home' | 'privacy' | 'terms' | 'cookies' | 'dmca' | 'accessibility';

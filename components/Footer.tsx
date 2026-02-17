@@ -1,7 +1,12 @@
 
 import React from 'react';
+import { AppView } from '../types';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigate: (view: AppView) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
     <footer className="relative bg-[#F2F0ED] pt-32 pb-16 border-t border-zinc-200/50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -96,17 +101,17 @@ const Footer: React.FC = () => {
               <div className="flex flex-col gap-3">
                 <h6 className="text-[10px] font-black text-[#B8860B] uppercase tracking-[0.3em] mb-1">Legal Protocols</h6>
                 <div className="flex gap-8">
-                  <a href="#" className="text-zinc-950 font-black uppercase tracking-[0.2em] text-[12px] hover:text-[#B8860B] transition-colors border-b-2 border-transparent hover:border-[#B8860B]">Privacy Policy</a>
-                  <a href="#" className="text-zinc-950 font-black uppercase tracking-[0.2em] text-[12px] hover:text-[#B8860B] transition-colors border-b-2 border-transparent hover:border-[#B8860B]">Terms of Service</a>
+                  <button onClick={() => onNavigate('privacy')} className="text-zinc-950 font-black uppercase tracking-[0.2em] text-[12px] hover:text-[#B8860B] transition-colors border-b-2 border-transparent hover:border-[#B8860B]">Privacy Policy</button>
+                  <button onClick={() => onNavigate('terms')} className="text-zinc-950 font-black uppercase tracking-[0.2em] text-[12px] hover:text-[#B8860B] transition-colors border-b-2 border-transparent hover:border-[#B8860B]">Terms of Service</button>
                 </div>
               </div>
               
               <div className="flex flex-col gap-3">
                 <h6 className="text-[10px] font-black text-[#B8860B] uppercase tracking-[0.3em] mb-1">User Agreements</h6>
                 <div className="flex gap-8">
-                  <a href="#" className="text-zinc-950 font-black uppercase tracking-[0.2em] text-[12px] hover:text-[#B8860B] transition-colors border-b-2 border-transparent hover:border-[#B8860B]">Cookie Policy</a>
-                  <a href="#" className="text-zinc-950 font-black uppercase tracking-[0.2em] text-[12px] hover:text-[#B8860B] transition-colors border-b-2 border-transparent hover:border-[#B8860B]">DMCA Notice</a>
-                  <a href="#" className="text-zinc-950 font-black uppercase tracking-[0.2em] text-[12px] hover:text-[#B8860B] transition-colors border-b-2 border-transparent hover:border-[#B8860B]">Accessibility</a>
+                  <button onClick={() => onNavigate('cookies')} className="text-zinc-950 font-black uppercase tracking-[0.2em] text-[12px] hover:text-[#B8860B] transition-colors border-b-2 border-transparent hover:border-[#B8860B]">Cookie Policy</button>
+                  <button onClick={() => onNavigate('dmca')} className="text-zinc-950 font-black uppercase tracking-[0.2em] text-[12px] hover:text-[#B8860B] transition-colors border-b-2 border-transparent hover:border-[#B8860B]">DMCA Notice</button>
+                  <button onClick={() => onNavigate('accessibility')} className="text-zinc-950 font-black uppercase tracking-[0.2em] text-[12px] hover:text-[#B8860B] transition-colors border-b-2 border-transparent hover:border-[#B8860B]">Accessibility</button>
                 </div>
               </div>
             </div>

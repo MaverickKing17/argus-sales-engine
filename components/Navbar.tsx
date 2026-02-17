@@ -1,12 +1,20 @@
 
 import React from 'react';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  onHomeClick?: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
   const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (onHomeClick) onHomeClick();
+    // Use a slight delay if switching from legal view back to home to ensure elements exist
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 50);
   };
 
   return (
@@ -14,7 +22,10 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div 
           className="flex items-center gap-3 group cursor-pointer" 
-          onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+          onClick={() => {
+            if (onHomeClick) onHomeClick();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+          }}
         >
           <div className="w-10 h-10 border-2 border-[#B8860B] flex items-center justify-center rotate-45 group-hover:bg-[#B8860B] transition-all duration-500">
             <div className="w-5 h-5 bg-[#B8860B] group-hover:bg-white -rotate-45 transition-colors"></div>

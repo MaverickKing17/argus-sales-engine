@@ -4,6 +4,7 @@ import { fetchMarketTrends } from '../services/geminiService';
 
 const MarketTicker: React.FC = () => {
   const [data, setData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
@@ -12,6 +13,8 @@ const MarketTicker: React.FC = () => {
         setData(trends);
       } catch (e) {
         console.error("Market Ticker Error:", e);
+      } finally {
+        setLoading(false);
       }
     };
     getData();
@@ -37,10 +40,10 @@ const MarketTicker: React.FC = () => {
 
   return (
     <div className="fixed top-20 w-full z-40 bg-[#000] shadow-2xl h-14 overflow-hidden flex items-center border-b border-zinc-800">
-      <div className="flex items-center gap-4 px-8 h-full bg-[#0035ad] border-r border-white/20">
+      <div className="flex items-center gap-4 px-8 h-full bg-[#0035ad] border-r border-white/20 shrink-0">
         <span className="relative flex h-3 w-3">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+          <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${loading ? 'bg-zinc-400' : 'bg-white'} opacity-75`}></span>
+          <span className={`relative inline-flex rounded-full h-3 w-3 ${loading ? 'bg-zinc-500' : 'bg-white'}`}></span>
         </span>
         <span className="text-[13px] font-black uppercase tracking-[0.25em] text-white whitespace-nowrap">GTA MARKET LIVE</span>
       </div>
