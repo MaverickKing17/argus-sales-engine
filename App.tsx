@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Navbar from './components/Navbar';
+import MarketTicker from './components/MarketTicker';
 import Hero from './components/Hero';
 import Calculator from './components/Calculator';
 import Features from './components/Features';
@@ -12,11 +13,14 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
+      <MarketTicker />
       <Hero />
-      <Calculator />
-      <Features />
-      <ChatDemo />
-      <Territory />
+      <div className="relative z-10">
+        <Calculator />
+        <Features />
+        <ChatDemo />
+        <Territory />
+      </div>
       <Footer />
     </div>
   );

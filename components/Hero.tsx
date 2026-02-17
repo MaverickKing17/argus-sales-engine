@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-zinc-950"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center pt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center pt-32 pb-20">
         <div className="inline-flex items-center gap-3 border border-[#D4AF37]/50 bg-black/50 px-6 py-2 rounded-full backdrop-blur-md mb-12">
           <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shadow-[0_0_10px_#D4AF37]"></span>
           <span className="text-[10px] uppercase tracking-[0.5em] text-[#FAE088] font-bold">The Gold Standard in GTA Real Estate AI</span>
