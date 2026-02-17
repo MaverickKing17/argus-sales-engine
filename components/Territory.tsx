@@ -45,13 +45,13 @@ const Territory: React.FC = () => {
         </div>
 
         <div className="relative p-3 bg-white border border-zinc-200 rounded-[3rem] shadow-2xl group overflow-hidden">
-           {/* Sun-drenched luxury home image for Bridle Path context */}
+           {/* High-fidelity cinematic luxury estate image provided by user */}
            <img 
-             src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2000&auto=format&fit=crop" 
-             alt="Luxury Bridle Path Estate" 
-             className="w-full h-[650px] object-cover rounded-[2.5rem] group-hover:scale-105 transition-transform duration-[8s] ease-out"
+             src="https://i.ibb.co/N2YvBSM5/gpt-image-1-5-high-fidelity-a-A-cinematic-ultra.png" 
+             alt="Elite Toronto Estate" 
+             className="w-full h-[650px] object-cover rounded-[2.5rem] group-hover:scale-105 transition-transform duration-[12s] ease-out"
            />
-           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90"></div>
+           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90"></div>
            <div className="absolute bottom-12 left-12 right-12 text-center">
              <div className="inline-block px-5 py-2 bg-[#B8860B] text-white text-[10px] font-black uppercase tracking-[0.3em] mb-4 rounded-full shadow-lg">
                Market Leader Spotlight
