@@ -10,45 +10,48 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 glass-panel border-b border-white/5 shadow-2xl">
+    <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-zinc-200/50 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <div className="flex items-center gap-3 group cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-          <div className="w-10 h-10 border-2 border-[#D4AF37] flex items-center justify-center rotate-45 group-hover:bg-[#D4AF37] transition-all duration-500">
-            <div className="w-5 h-5 bg-[#D4AF37] group-hover:bg-zinc-950 -rotate-45 transition-colors"></div>
+        <div 
+          className="flex items-center gap-3 group cursor-pointer" 
+          onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+        >
+          <div className="w-10 h-10 border-2 border-[#B8860B] flex items-center justify-center rotate-45 group-hover:bg-[#B8860B] transition-all duration-500">
+            <div className="w-5 h-5 bg-[#B8860B] group-hover:bg-white -rotate-45 transition-colors"></div>
           </div>
           <div className="flex flex-col">
-            <span className="text-xl tracking-[0.25em] font-bold text-white">ARGUS</span>
-            <span className="text-[8px] tracking-[0.4em] text-[#D4AF37] font-semibold uppercase leading-none">Intelligence</span>
+            <span className="text-xl tracking-[0.25em] font-black text-zinc-900 uppercase">ARGUS</span>
+            <span className="text-[9px] tracking-[0.45em] text-[#B8860B] font-black uppercase leading-none">Intelligence</span>
           </div>
         </div>
 
-        <div className="hidden lg:flex items-center gap-10 text-[10px] font-bold uppercase tracking-widest text-zinc-300">
-          <button onClick={() => scrollTo('calculator')} className="hover:text-[#D4AF37] transition-colors relative group">
+        <div className="hidden lg:flex items-center gap-12 text-[11px] font-black uppercase tracking-[0.2em] text-zinc-500">
+          <button onClick={() => scrollTo('calculator')} className="hover:text-zinc-900 transition-colors relative group">
             GCI Calculator
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#D4AF37] group-hover:w-full transition-all"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#B8860B] group-hover:w-full transition-all"></span>
           </button>
-          <button onClick={() => scrollTo('technology')} className="hover:text-[#D4AF37] transition-colors relative group">
+          <button onClick={() => scrollTo('technology')} className="hover:text-zinc-900 transition-colors relative group">
             Technology
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#D4AF37] group-hover:w-full transition-all"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#B8860B] group-hover:w-full transition-all"></span>
           </button>
-          <button onClick={() => scrollTo('demo')} className="hover:text-[#D4AF37] transition-colors relative group">
+          <button onClick={() => scrollTo('demo')} className="hover:text-zinc-900 transition-colors relative group">
             Concierge Demo
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#D4AF37] group-hover:w-full transition-all"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#B8860B] group-hover:w-full transition-all"></span>
           </button>
-          <button onClick={() => scrollTo('territory')} className="hover:text-[#D4AF37] transition-colors relative group">
+          <button onClick={() => scrollTo('territory')} className="hover:text-zinc-900 transition-colors relative group">
             Territory
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#D4AF37] group-hover:w-full transition-all"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#B8860B] group-hover:w-full transition-all"></span>
           </button>
         </div>
 
         <div className="flex items-center gap-4">
           <button 
             onClick={() => scrollTo('territory')}
-            className="hidden sm:block btn-gold py-2.5 px-6 text-[10px]"
+            className="hidden sm:block btn-luxury !py-3 !px-8 !text-[10px] rounded-lg"
           >
             Reserved Access
           </button>
-          <button className="lg:hidden text-white">
+          <button className="lg:hidden text-zinc-900 flex items-center">
             <iconify-icon icon="solar:hamburger-menu-linear" width="28"></iconify-icon>
           </button>
         </div>
