@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,78 +12,94 @@
         
         :root {
             --argus-gold: #D4AF37;
-            --argus-gold-light: #FAE088;
+            --argus-gold-soft: #C5A028;
+            --argus-champagne: #F5E6BE;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #050505;
-            color: #e4e4e7;
+            background-color: #0c0c0e;
+            color: #f4f4f5;
             margin: 0;
             overflow-x: hidden;
         }
 
-        /* Persistent Luxury Background */
+        /* Luxury "Golden Hour" Toronto Background */
         .luxury-bg-overlay {
             position: fixed;
             inset: 0;
             z-index: -1;
             background: 
-                linear-gradient(to bottom, rgba(9, 9, 11, 0.85), rgba(9, 9, 11, 0.95)),
-                url('https://images.unsplash.com/photo-1517090504586-fde19ea6066f?auto=format&fit=crop&q=80&w=2000');
+                linear-gradient(to bottom, rgba(12, 12, 14, 0.7) 0%, rgba(12, 12, 14, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1503106628544-27318fef6252?auto=format&fit=crop&q=80&w=2000');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
         .glass-panel {
-            background: rgba(18, 18, 20, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(24, 24, 27, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
 
-        .gold-shadow {
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+        .gold-accent {
+            color: var(--argus-gold);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #FAE088 100%);
+            color: #0c0c0e;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
         }
 
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-track { background: #0c0c0e; }
         ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--argus-gold); }
 
-        /* Custom range slider styling */
         input[type=range] { -webkit-appearance: none; background: transparent; }
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
-            height: 18px; width: 18px;
+            height: 20px; width: 20px;
             border-radius: 50%;
             background: var(--argus-gold);
             cursor: pointer;
-            margin-top: -7px;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+            margin-top: -8px;
+            border: 2px solid white;
         }
         input[type=range]::-webkit-slider-runnable-track {
             width: 100%; height: 4px;
-            cursor: pointer; background: #27272a;
+            cursor: pointer; background: rgba(255,255,255,0.1);
             border-radius: 2px;
         }
     </style>
-    <script type="importmap">
-    {
-      "imports": {
-        "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-        "react/": "https://esm.sh/react@^19.2.4/",
-        "react": "https://esm.sh/react@^19.2.4",
-        "@google/genai": "https://esm.sh/@google/genai@^1.41.0"
-      }
-    }
-    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0"
+  }
+}
+</script>
 </head>
 <body class="antialiased selection:bg-[#D4AF37] selection:text-zinc-950">
     <div class="luxury-bg-overlay"></div>
     <div id="root"></div>
-    <!-- Entry point script -->
     <script type="module" src="index.tsx"></script>
 </body>
 </html>

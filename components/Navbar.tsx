@@ -2,6 +2,13 @@
 import React from 'react';
 
 const Navbar: React.FC = () => {
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className="fixed top-0 w-full z-50 glass-panel border-b border-white/5 shadow-2xl">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -15,29 +22,32 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        <div className="hidden lg:flex items-center gap-10 text-xs font-bold uppercase tracking-widest text-zinc-400">
-          <a href="#calculator" className="hover:text-[#D4AF37] transition-colors relative group">
+        <div className="hidden lg:flex items-center gap-10 text-[10px] font-bold uppercase tracking-widest text-zinc-300">
+          <button onClick={() => scrollTo('calculator')} className="hover:text-[#D4AF37] transition-colors relative group">
             GCI Calculator
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#D4AF37] group-hover:w-full transition-all"></span>
-          </a>
-          <a href="#technology" className="hover:text-[#D4AF37] transition-colors relative group">
+          </button>
+          <button onClick={() => scrollTo('technology')} className="hover:text-[#D4AF37] transition-colors relative group">
             Technology
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#D4AF37] group-hover:w-full transition-all"></span>
-          </a>
-          <a href="#demo" className="hover:text-[#D4AF37] transition-colors relative group">
+          </button>
+          <button onClick={() => scrollTo('demo')} className="hover:text-[#D4AF37] transition-colors relative group">
             Concierge Demo
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#D4AF37] group-hover:w-full transition-all"></span>
-          </a>
-          <a href="#territory" className="hover:text-[#D4AF37] transition-colors relative group">
+          </button>
+          <button onClick={() => scrollTo('territory')} className="hover:text-[#D4AF37] transition-colors relative group">
             Territory
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#D4AF37] group-hover:w-full transition-all"></span>
-          </a>
+          </button>
         </div>
 
         <div className="flex items-center gap-4">
-          <a href="#territory" className="hidden sm:block bg-[#D4AF37] text-zinc-950 text-[10px] font-black py-2.5 px-6 hover:bg-[#FAE088] transition-all shadow-[0_0_20px_rgba(212,175,55,0.2)] tracking-[0.2em] uppercase">
-            Reserved Login
-          </a>
+          <button 
+            onClick={() => scrollTo('territory')}
+            className="hidden sm:block btn-gold py-2.5 px-6 text-[10px]"
+          >
+            Reserved Access
+          </button>
           <button className="lg:hidden text-white">
             <iconify-icon icon="solar:hamburger-menu-linear" width="28"></iconify-icon>
           </button>
