@@ -2,8 +2,10 @@
 import React, { useState, useMemo } from 'react';
 
 const Calculator: React.FC = () => {
-  const [price, setPrice] = useState(3.5);
-  const [calls, setCalls] = useState(15);
+  const [clientValue, setClientValue] = useState<string>('10000');
+  const [missedCalls, setMissedCalls] = useState<string>('10');
+  const [closeRate, setCloseRate] = useState<string>('5');
+  const [results, setResults] = useState<{ leftOnTable: number, weCharge: number, roi: number } | null>(null);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -11,12 +13,30 @@ const Calculator: React.FC = () => {
   };
 
   const recoveredGCI = useMemo(() => {
-    const priceInDollars = price * 1_000_000;
-    const annualMissedCalls = calls * 12;
-    const recoveredLeads = annualMissedCalls * 0.02; 
-    const avgCommission = priceInDollars * 0.025; 
-    return recoveredLeads * avgCommission;
-  }, [price, calls]);
+    const value = parseFloat(clientValue) || 0;
+    const callsPerWeek = parseFloat(missedCalls) || 0;
+    const rate = parseFloat(closeRate) || 0;
+    
+    const annualMissedCalls = callsPerWeek * 52;
+    const recoveredLeads = annualMissedCalls * (rate / 100);
+    return recoveredLeads * value;
+  }, [clientValue, missedCalls, closeRate]);
+
+  const handleCalculate = () => {
+    const value = parseFloat(clientValue) || 0;
+    const calls = parseFloat(missedCalls) || 0;
+    const rate = parseFloat(closeRate) || 0;
+
+    const monthlyLeftOnTable = value * calls * 4 * (rate / 100);
+    const charge = 1000; // Fixed charge for the example
+    const roi = charge > 0 ? ((monthlyLeftOnTable - charge) / charge) * 100 : 0;
+
+    setResults({
+      leftOnTable: monthlyLeftOnTable,
+      weCharge: charge,
+      roi: roi
+    });
+  };
 
   const formatCurrency = (num: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -40,37 +60,58 @@ const Calculator: React.FC = () => {
               </p>
             </div>
 
-            <div className="space-y-10 bg-white p-12 rounded-3xl border border-zinc-300 shadow-xl backdrop-blur-sm">
+            <div className="bg-white p-10 rounded-3xl border border-zinc-300 shadow-xl backdrop-blur-sm">
+              <h3 className="text-3xl font-black text-zinc-950 text-center mb-8">ROI Calculator</h3>
+              
               <div className="space-y-6">
-                <div className="flex justify-between items-end">
-                  <label className="text-[12px] font-black text-zinc-950 uppercase tracking-[0.3em]">MEDIAN PORTFOLIO PRICE</label>
-                  <span className="text-3xl font-black text-zinc-950 tracking-tighter">${price}M</span>
+                <div className="space-y-2">
+                  <label className="text-[13px] font-black text-zinc-950 uppercase tracking-[0.1em]">Average Client Value:</label>
+                  <input 
+                    type="number" 
+                    value={clientValue}
+                    onChange={e => setClientValue(e.target.value)}
+                    className="w-full p-4 bg-zinc-50 border border-zinc-200 rounded-xl focus:outline-none focus:border-[#B8860B] focus:ring-1 focus:ring-[#B8860B] text-zinc-900 font-bold text-lg transition-all"
+                    placeholder="e.g. 10000"
+                  />
                 </div>
-                <input 
-                  type="range" 
-                  min="1" 
-                  max="20" 
-                  step="0.5" 
-                  value={price} 
-                  onChange={(e) => setPrice(parseFloat(e.target.value))}
-                  className="w-full h-2 bg-zinc-200 rounded-lg appearance-none cursor-pointer accent-[#B8860B]"
-                />
-              </div>
 
-              <div className="space-y-6 pt-6 border-t border-zinc-200">
-                <div className="flex justify-between items-end">
-                  <label className="text-[12px] font-black text-zinc-950 uppercase tracking-[0.3em]">MONTHLY MISSED ENQUIRIES</label>
-                  <span className="text-3xl font-black text-zinc-950 tracking-tighter">{calls}</span>
+                <div className="space-y-2">
+                  <label className="text-[13px] font-black text-zinc-950 uppercase tracking-[0.1em]">Missed Calls per Week:</label>
+                  <input 
+                    type="number" 
+                    value={missedCalls}
+                    onChange={e => setMissedCalls(e.target.value)}
+                    className="w-full p-4 bg-zinc-50 border border-zinc-200 rounded-xl focus:outline-none focus:border-[#B8860B] focus:ring-1 focus:ring-[#B8860B] text-zinc-900 font-bold text-lg transition-all"
+                    placeholder="e.g. 10"
+                  />
                 </div>
-                <input 
-                  type="range" 
-                  min="5" 
-                  max="100" 
-                  step="1" 
-                  value={calls} 
-                  onChange={(e) => setCalls(parseInt(e.target.value))}
-                  className="w-full h-2 bg-zinc-200 rounded-lg appearance-none cursor-pointer accent-[#B8860B]"
-                />
+
+                <div className="space-y-2">
+                  <label className="text-[13px] font-black text-zinc-950 uppercase tracking-[0.1em]">Average Close Rate (%):</label>
+                  <input 
+                    type="number" 
+                    value={closeRate}
+                    onChange={e => setCloseRate(e.target.value)}
+                    className="w-full p-4 bg-zinc-50 border border-zinc-200 rounded-xl focus:outline-none focus:border-[#B8860B] focus:ring-1 focus:ring-[#B8860B] text-zinc-900 font-bold text-lg transition-all"
+                    placeholder="e.g. 5"
+                  />
+                </div>
+
+                <button 
+                  onClick={handleCalculate}
+                  className="w-full bg-[#0035ad] text-white font-black uppercase tracking-[0.2em] py-4 rounded-xl mt-4 hover:bg-[#002a8a] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                >
+                  Calculate ROI
+                </button>
+
+                {results && (
+                  <div className="mt-8 pt-8 border-t border-zinc-200 space-y-4 text-center reveal-up">
+                    <h4 className="text-2xl font-black text-zinc-950 mb-4">Results:</h4>
+                    <p className="text-zinc-600 font-bold text-lg">Monthly $$$ Left on Table: <span className="font-black text-zinc-950">{formatCurrency(results.leftOnTable)}</span></p>
+                    <p className="text-zinc-600 font-bold text-lg">We Charge (per month): <span className="font-black text-zinc-950">{formatCurrency(results.weCharge)}</span></p>
+                    <p className="text-zinc-600 font-bold text-lg">ROI: <span className="font-black text-[#B8860B]">{results.roi.toFixed(0)}%</span></p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
