@@ -47,7 +47,7 @@ const MarketTicker: React.FC = () => {
           <span className={`relative inline-flex rounded-full h-3 w-3 ${loading ? 'bg-white/50' : 'bg-white'}`}></span>
         </span>
         <span className="text-[12px] font-black uppercase tracking-[0.25em] text-white whitespace-nowrap" style={{ fontFamily: '"Segoe UI", sans-serif' }}>
-          GTA MARKET LIVE
+          GTA MARKET LIVE {displayData.reportMonth ? `- ${displayData.reportMonth.toUpperCase()}` : ''}
         </span>
       </div>
       

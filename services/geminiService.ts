@@ -79,7 +79,7 @@ export async function fetchMarketTrends() {
   try {
     const response = await ai.models.generateContent({
       model: "gemini-3-pro-preview",
-      contents: "Return latest GTA average prices for Detached, Semi, and Condos as raw JSON. Schema: detachedAvg, semiAvg, condoAvg, salesVolume, trendDirection, reportMonth.",
+      contents: "Return the latest available GTA average real estate prices for Detached, Semi, and Condos as raw JSON. Explicitly find the most recent available month and year for this data and include it in the reportMonth field. Schema: detachedAvg, semiAvg, condoAvg, salesVolume, trendDirection, reportMonth.",
       config: {
         tools: [{ googleSearch: {} }],
         responseMimeType: "application/json",
